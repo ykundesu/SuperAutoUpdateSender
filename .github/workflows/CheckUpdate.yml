@@ -1,0 +1,32 @@
+name: CheckUpdate
+
+on:
+  schedule:
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    env:
+      CONSUMER_KEY: ${{ secrets.CK }}
+      CONSUMER_SECRET: ${{ secrets.CS }}
+      ACCESS_TOKEN: ${{ secrets.AT }}
+      ACCESS_SECRET: ${{ secrets.AS }}
+      SNRDETATOKEN: ${{ secrets.SDT }}
+      SNRKAIHATUNEWS: ${{ secrets.SKN }}
+      SNRSERVERNEWS: ${{ secrets.SSN }}
+    runs-on: ubuntu-latest
+    name: Check Update
+    steps:
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install requirements
+        run: |
+          pip install -r CheckUpdate-requirements.txt
+      - name: Run Tweet Schedule
+        run: |
+          python3 CheckUpdate.py
