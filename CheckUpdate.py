@@ -55,7 +55,7 @@ AmongUs ver 2023.6.13 + SNR v1.8.1.3 などを使用する事を推奨します�
 この場合のバグ対応及び質問対応は致しません。
 該当記事："""+items[0].find("a").get("href")+"\nクルーメイトかわいい\nもちもち\n\nSuperNewRolesくん(よっキング)"
 send_webhook("SNRSERVERNEWS",
-             "<@&105572998680963892>\n"+text,
+             "<@&1055729986809638922>\n"+text,
              "SuperNewRolesくん"
              )
 CONSUMER_KEY = os.environ.get('CONSUMER_KEY', "")
