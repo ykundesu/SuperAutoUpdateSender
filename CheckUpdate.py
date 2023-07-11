@@ -29,7 +29,6 @@ while True:
         continue
     nsoup = BeautifulSoup(newsresponse.json()["html"], "html.parser")
     items = nsoup.find_all(attrs={ 'class': "news-list_item" })
-    break
     if items[0].find("a").get("href") != NEWS_SAISIN:
         break
     time.sleep(30)
